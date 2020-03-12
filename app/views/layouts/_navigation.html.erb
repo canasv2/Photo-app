@@ -26,7 +26,8 @@
             </div>
           </li>        
         </ul>
-        <ul class="navbar-nav ml-auto">
+        <%= current_user.email %>
+        <ul class="navbar-nav ml-auto espace">
           <li class="nav-item">
             <%= link_to( 'Logout', destroy_user_session_path,
                         class: "btn btn-xs btn-danger logout-button", method: :delete) %>        
@@ -37,6 +38,13 @@
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>
+    <% else %>
+      <ul class="navbar-nav ml-auto espace">
+        <li class="nav-item">
+          <%= link_to( 'Sing in', user_session_path,
+                      class: "btn btn-xs btn-success logout-button") %>        
+        </li>
+      </ul>
     <% end %>
   </div>
 </nav>
